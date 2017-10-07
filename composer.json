@@ -1,0 +1,27 @@
+{
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maurice Bonemeijer",
+            "email": "maurice.bonemeijer@gmail.com",
+            "homepage": "https://github.com/Bonemeijer",
+            "role": "Author"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Bonemeijer/SmartDump/issues",
+        "source": "https://github.com/Bonemeijer/SmartDump",
+        "docs": "https://github.com/Bonemeijer/SmartDump/doc"
+    },
+    "require": {
+        "php": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "SmartDump\\": "src/"
+        },
+        "files": [
+            "functions.php"
+        ]
+    }
+}
