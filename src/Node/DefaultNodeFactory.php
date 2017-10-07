@@ -37,7 +37,7 @@ use SmartDump\Node\Type\StringType\StringNodeTypeFactory;
 /**
  * Class DefaultNodeFactory
  *
- * @package SmartDump
+ * @package    SmartDump
  * @subpackage Node
  */
 class DefaultNodeFactory extends NodeFactory

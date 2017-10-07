@@ -28,7 +28,7 @@ namespace SmartDump\Node;
 /**
  * Interface NodeFactoryInterface
  *
- * @package SmartDump
+ * @package    SmartDump
  * @subpackage Node
  */
 interface NodeFactoryInterface

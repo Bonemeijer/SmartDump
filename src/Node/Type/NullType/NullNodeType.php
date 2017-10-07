@@ -30,7 +30,7 @@ use SmartDump\Node\Type\NodeType;
 /**
  * Class NullNodeType
  *
- * @package SmartDump
+ * @package    SmartDump
  * @subpackage Node
  */
 class NullNodeType extends NodeType

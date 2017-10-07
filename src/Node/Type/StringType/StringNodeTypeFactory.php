@@ -31,7 +31,7 @@ use SmartDump\Node\Type\NodeTypeFactoryInterface;
 /**
  * Class StringNodeTypeFactory
  *
- * @package SmartDump
+ * @package    SmartDump
  * @subpackage Node
  */
 class StringNodeTypeFactory implements NodeTypeFactoryInterface

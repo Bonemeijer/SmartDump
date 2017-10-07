@@ -30,13 +30,11 @@ use SmartDump\Node\Type\NodeType;
 /**
  * Class ObjectNodeType
  *
- * @package SmartDump
+ * @package    SmartDump
  * @subpackage Node
  */
 class ObjectNodeType extends NodeType
 {
-    const SCOPE_STATIC = 'static';
-
     const VISIBILITY_PUBLIC    = 'public';
     const VISIBILITY_PROTECTED = 'protected';
     const VISIBILITY_PRIVATE   = 'private';

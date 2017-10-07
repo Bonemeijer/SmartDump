@@ -30,7 +30,7 @@ use SmartDump\Node\Type\NodeType;
 /**
  * Class BooleanNodeType
  *
- * @package SmartDump
+ * @package    SmartDump
  * @subpackage Node
  */
 class BooleanNodeType extends NodeType

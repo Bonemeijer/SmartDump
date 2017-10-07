@@ -30,7 +30,7 @@ use RuntimeException;
 /**
  * Class NodeNotSupportedException
  *
- * @package SmartDump
+ * @package    SmartDump
  * @subpackage Node
  */
 class NodeNotSupportedException extends RuntimeException

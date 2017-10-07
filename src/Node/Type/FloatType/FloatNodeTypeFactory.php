@@ -31,7 +31,7 @@ use SmartDump\Node\Type\NodeTypeFactoryInterface;
 /**
  * Class FloatNodeTypeFactory
  *
- * @package SmartDump
+ * @package    SmartDump
  * @subpackage Node
  */
 class FloatNodeTypeFactory implements NodeTypeFactoryInterface

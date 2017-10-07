@@ -30,7 +30,7 @@ use SmartDump\Node\Type\NodeType;
 /**
  * Class FloatNodeType
  *
- * @package SmartDump
+ * @package    SmartDump
  * @subpackage Node
  */
 class FloatNodeType extends NodeType

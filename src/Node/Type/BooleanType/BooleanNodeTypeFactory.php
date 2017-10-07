@@ -31,7 +31,7 @@ use SmartDump\Node\Type\NodeTypeFactoryInterface;
 /**
  * Class BooleanNodeTypeFactory
  *
- * @package SmartDump
+ * @package    SmartDump
  * @subpackage Node
  */
 class BooleanNodeTypeFactory implements NodeTypeFactoryInterface

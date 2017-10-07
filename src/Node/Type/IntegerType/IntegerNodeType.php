@@ -30,7 +30,7 @@ use SmartDump\Node\Type\NodeType;
 /**
  * Class IntegerNodeType
  *
- * @package SmartDump
+ * @package    SmartDump
  * @subpackage Node
  */
 class IntegerNodeType extends NodeType

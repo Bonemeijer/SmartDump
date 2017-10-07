@@ -31,7 +31,7 @@ use SmartDump\Node\Type\NodeTypeFactoryInterface;
 /**
  * Class NodeTypeNotSupportedException
  *
- * @package SmartDump
+ * @package    SmartDump
  * @subpackage Node
  */
 class NodeTypeNotSupportedException extends RuntimeException
@@ -39,7 +39,7 @@ class NodeTypeNotSupportedException extends RuntimeException
     /**
      * Create new NodeTypeNotSupportedException for variable
      *
-     * @param string $variableType
+     * @param string                   $variableType
      * @param NodeTypeFactoryInterface $factory
      * @return $this
      */

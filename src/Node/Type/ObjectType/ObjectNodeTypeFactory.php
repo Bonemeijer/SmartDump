@@ -33,7 +33,7 @@ use SmartDump\Node\Type\NodeTypeFactoryInterface;
 /**
  * Class ObjectNodeTypeFactory
  *
- * @package SmartDump
+ * @package    SmartDump
  * @subpackage Node
  */
 class ObjectNodeTypeFactory implements NodeTypeFactoryInterface

@@ -30,7 +30,7 @@ use SmartDump\Node\Type\NodeType;
 /**
  * Class ResourceNodeType
  *
- * @package SmartDump
+ * @package    SmartDump
  * @subpackage Node
  */
 class ResourceNodeType extends NodeType
