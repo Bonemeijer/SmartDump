@@ -29,7 +29,7 @@ use SmartDump\Formatter\StringFormatter\StringFormatterInterface;
 use SmartDump\Node\NodeInterface;
 
 /**
- * class StreamStringDumper
+ * Class StreamStringDumper
  *
  * @package    SmartDump
  * @subpackage Formatter
