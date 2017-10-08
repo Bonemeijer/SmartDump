@@ -23,18 +23,17 @@
  * SOFTWARE.
  */
 
-namespace SmartDump\Formatter\Text;
+namespace SmartDump\Formatter\StringFormatter;
 
-use SmartDump\Formatter\StringFormatterInterface;
 use SmartDump\Node\NodeInterface;
 
 /**
- * Class PlainTextFormatter
+ * Class PlainTextStringFormatter
  *
  * @package    SmartDump
  * @subpackage Formatter
  */
-class PlainTextFormatter implements StringFormatterInterface
+class PlainTextStringFormatter implements StringFormatterInterface
 {
     const DEFAULT_MAX_DEPTH          = 5;
     const DEFAULT_INDENTATION_STRING = '    ';

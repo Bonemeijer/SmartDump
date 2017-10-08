@@ -23,8 +23,9 @@
  * SOFTWARE.
  */
 
-namespace SmartDump\Formatter;
+namespace SmartDump\Formatter\StringFormatter;
 
+use SmartDump\Formatter\FormatterInterface;
 use SmartDump\Node\NodeInterface;
 
 /**
