@@ -25,6 +25,8 @@
 
 namespace SmartDump\Dumper\String;
 
+use SmartDump\Dumper\FormatterNotSupportedException;
+use SmartDump\Formatter\FormatterInterface;
 use SmartDump\Formatter\StringFormatter\StringFormatterInterface;
 use SmartDump\Node\NodeInterface;
 
@@ -36,13 +38,111 @@ use SmartDump\Node\NodeInterface;
  */
 class OutputStringDumper implements StringDumperInterface
 {
+    /** @var bool */
+    protected $autoExit;
+
+    /** @var bool */
+    protected $clearOutputBuffer;
+
+    /**
+     * Constructor
+     *
+     * @param bool $autoExit
+     * @param bool $clearOutputBuffer
+     */
+    public function __construct(
+        $autoExit = false,
+        $clearOutputBuffer = false
+    ) {
+        $this->autoExit          = $autoExit;
+        $this->clearOutputBuffer = $clearOutputBuffer;
+    }
+
+    /**
+     * AutoExit accessor
+     *
+     * @return bool
+     */
+    public function getAutoExit()
+    {
+        return $this->autoExit;
+    }
+
+    /**
+     * AutoExit mutator
+     *
+     * @param  bool $value
+     *
+     * @return $this
+     */
+    public function setAutoExit($value)
+    {
+        $this->autoExit = $value;
+
+        return $this;
+    }
+
+    /**
+     * ClearOutputBuffer accessor
+     *
+     * @return bool
+     */
+    public function getClearOutputBuffer()
+    {
+        return $this->clearOutputBuffer;
+    }
+
+    /**
+     * ClearOutputBuffer mutator
+     *
+     * @param  bool $value
+     *
+     * @return $this
+     */
+    public function setClearOutputBuffer($value)
+    {
+        $this->clearOutputBuffer = $value;
+
+        return $this;
+    }
+
     /**
      * @inheritdoc
      */
-    public function dump(NodeInterface $node, StringFormatterInterface $formatter)
+    public function dump(NodeInterface $node, FormatterInterface $formatter)
     {
+        if (!$formatter instanceof StringFormatterInterface) {
+            throw FormatterNotSupportedException::createFor($this, $formatter);
+        }
+
         $output = $formatter->format($node);
 
+        if ($this->getClearOutputBuffer()) {
+            $this->clearOutputBuffer();
+        }
+
         echo $output;
+
+        if ($this->getAutoExit()) {
+            exit();
+        }
+    }
+
+    /**
+     * Clear all output buffer levels
+     *
+     * @return void
+     */
+    protected function clearOutputBuffer()
+    {
+        if (false !== ob_get_contents()) {
+            // There is no way to check if an output buffer is active, so we have
+            // to clear regardless wether one's active or not.
+            // And since they can be nested, we need to clear them in a loop.
+            /** @noinspection PhpUsageOfSilenceOperatorInspection */
+            /** @noinspection PhpStatementHasEmptyBodyInspection */
+            while (@ob_end_clean()) {
+            }
+        }
     }
 }
