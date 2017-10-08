@@ -94,7 +94,7 @@ class DomStringFormatter implements StringFormatterInterface
      * @param NodeInterface $node
      * @return DOMElement
      */
-    public function renderAggregateNode(DOMDocument $domDocument, NodeInterface $node)
+    protected function renderAggregateNode(DOMDocument $domDocument, NodeInterface $node)
     {
         $nodeElement      = $this->markupDocument->aggregateNode($domDocument, $node);
         $aggregateElement = $this->markupDocument->aggregateChildrenContainer($domDocument, $node);
