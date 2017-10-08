@@ -35,4 +35,13 @@ use SmartDump\Node\Type\NodeType;
  */
 class IntegerNodeType extends NodeType
 {
+    const TYPE = 'integer-node';
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->types[] = self::TYPE;
+    }
 }

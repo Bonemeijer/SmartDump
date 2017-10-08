@@ -35,6 +35,16 @@ use SmartDump\Node\Type\NodeType;
  */
 class ArrayNodeType extends NodeType
 {
+    const TYPE = 'array-node';
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->types[] = self::TYPE;
+    }
+
     /** @var string */
     protected $stringValue = 'Array';
 

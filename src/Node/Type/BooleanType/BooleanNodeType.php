@@ -35,4 +35,13 @@ use SmartDump\Node\Type\NodeType;
  */
 class BooleanNodeType extends NodeType
 {
+    const TYPE = 'boolean-node';
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->types[] = self::TYPE;
+    }
 }

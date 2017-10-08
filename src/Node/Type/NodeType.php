@@ -34,6 +34,11 @@ use SmartDump\Node\NodeInterface;
  */
 class NodeType implements NodeInterface
 {
+    const TYPE = 'node';
+
+    /** @var array */
+    protected $types = [self::TYPE];
+
     /** @var null|string */
     protected $name;
 
@@ -155,5 +160,13 @@ class NodeType implements NodeInterface
     public function addChild(NodeInterface $nodeType)
     {
         $this->children[] = $nodeType;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getTypes()
+    {
+        return $this->types;
     }
 }

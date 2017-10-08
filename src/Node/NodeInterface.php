@@ -98,4 +98,11 @@ interface NodeInterface
      * @return NodeInterface[]
      */
     public function getChildren();
+
+    /**
+     * Get what types this node consists of
+     *
+     * @return string[]
+     */
+    public function getTypes();
 }

@@ -35,4 +35,13 @@ use SmartDump\Node\Type\NodeType;
  */
 class FloatNodeType extends NodeType
 {
+    const TYPE = 'float-node';
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->types[] = self::TYPE;
+    }
 }

@@ -35,4 +35,13 @@ use SmartDump\Node\Type\NodeType;
  */
 class ResourceNodeType extends NodeType
 {
+    const TYPE = 'resource-node';
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->types[] = self::TYPE;
+    }
 }

@@ -35,4 +35,13 @@ use SmartDump\Node\Type\NodeType;
  */
 class NullNodeType extends NodeType
 {
+    const TYPE = 'null-node';
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->types[] = self::TYPE;
+    }
 }

@@ -35,9 +35,19 @@ use SmartDump\Node\Type\NodeType;
  */
 class ObjectNodeType extends NodeType
 {
+    const TYPE = 'object-node';
+
     const VISIBILITY_PUBLIC    = 'public';
     const VISIBILITY_PROTECTED = 'protected';
     const VISIBILITY_PRIVATE   = 'private';
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->types[] = self::TYPE;
+    }
 
     /** @var string */
     protected $stringValue = 'Object';
