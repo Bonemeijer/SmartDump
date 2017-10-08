@@ -23,45 +23,34 @@
  * SOFTWARE.
  */
 
-namespace SmartDump\Dumper\String;
+namespace SmartDump\Dumper;
 
-use SmartDump\Dumper\FormatterNotSupportedException;
+use RuntimeException;
 use SmartDump\Formatter\FormatterInterface;
-use SmartDump\Formatter\StringFormatter\StringFormatterInterface;
-use SmartDump\Node\NodeInterface;
 
 /**
- * Class StreamStringDumper
+ * Class FormatterNotSupportedException
  *
  * @package    SmartDump
  * @subpackage Dumper
  */
-class StreamStringDumper implements StringDumperInterface
+class FormatterNotSupportedException extends RuntimeException
 {
-    /** @var string */
-    protected $target;
-
     /**
-     * Constructor
+     * Create new NodeNotSupportedException for variable
      *
-     * @param string $target
+     * @param DumperInterface    $dumper
+     * @param FormatterInterface $formatter
+     * @return $this
      */
-    public function __construct($target)
+    public static function createFor(DumperInterface $dumper, FormatterInterface $formatter)
     {
-        $this->target = $target;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function dump(NodeInterface $node, FormatterInterface $formatter)
-    {
-        if (!$formatter instanceof StringFormatterInterface) {
-            throw FormatterNotSupportedException::createFor($this, $formatter);
-        }
-
-        $output = $formatter->format($node);
-        $handle = fopen($this->target, 'w');
-        fwrite($handle, $output);
+        return new static(
+            sprintf(
+                'Formatter "%s" is not supported by "%s"',
+                get_class($formatter),
+                get_class($dumper)
+            )
+        );
     }
 }
