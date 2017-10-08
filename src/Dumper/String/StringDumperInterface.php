@@ -29,7 +29,7 @@ namespace SmartDump\Dumper\String;
  * Interface StringDumperInterface
  *
  * @package    SmartDump
- * @subpackage Formatter
+ * @subpackage Dumper
  */
 interface StringDumperInterface
 {

@@ -32,7 +32,7 @@ use SmartDump\Node\NodeInterface;
  * Class StreamStringDumper
  *
  * @package    SmartDump
- * @subpackage Formatter
+ * @subpackage Dumper
  */
 class StreamStringDumper implements StringDumperInterface
 {

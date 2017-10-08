@@ -31,7 +31,7 @@ use SmartDump\Node\NodeInterface;
  * Interface DumperInterface
  *
  * @package    SmartDump
- * @subpackage Formatter
+ * @subpackage Dumper
  */
 interface DumperInterface
 {
