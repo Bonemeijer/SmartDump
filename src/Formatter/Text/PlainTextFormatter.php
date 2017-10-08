@@ -100,7 +100,7 @@ class PlainTextFormatter implements StringFormatterInterface
     }
 
     /**
-     * Foramt an aggregate node to string
+     * Format an aggregate node to string
      *
      * @param NodeInterface $node
      * @param int           $currentDepth
