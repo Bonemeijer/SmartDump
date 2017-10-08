@@ -37,7 +37,7 @@ use SmartDump\Formatter\FormatterInterface;
 class FormatterNotSupportedException extends RuntimeException
 {
     /**
-     * Create new NodeNotSupportedException for variable
+     * Create new FormatterNotSupportedException for variable
      *
      * @param DumperInterface    $dumper
      * @param FormatterInterface $formatter
