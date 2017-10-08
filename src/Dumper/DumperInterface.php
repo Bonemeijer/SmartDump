@@ -25,6 +25,7 @@
 
 namespace SmartDump\Dumper;
 
+use SmartDump\Formatter\FormatterInterface;
 use SmartDump\Node\NodeInterface;
 
 /**
@@ -38,8 +39,9 @@ interface DumperInterface
     /**
      * Dump a node
      *
-     * @param NodeInterface $node
-     * @return mixed
+     * @param NodeInterface      $node
+     * @param FormatterInterface $formatter
+     * @return void
      */
-    public function dump(NodeInterface $node);
+    public function dump(NodeInterface $node, FormatterInterface $formatter);
 }

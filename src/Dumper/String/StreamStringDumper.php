@@ -36,33 +36,25 @@ use SmartDump\Node\NodeInterface;
  */
 class StreamStringDumper implements StringDumperInterface
 {
-    /** @var StringFormatterInterface */
-    protected $formatter;
-
     /** @var string */
     protected $target;
 
     /**
      * Constructor
      *
-     * @param StringFormatterInterface $formatter
-     * @param string                   $target
+     * @param string $target
      */
-    public function __construct(
-        StringFormatterInterface $formatter,
-        $target
-    ) {
-        $this->target    = $target;
-        $this->formatter = $formatter;
+    public function __construct($target)
+    {
+        $this->target = $target;
     }
 
     /**
      * @inheritdoc
      */
-    public function dump(NodeInterface $node)
+    public function dump(NodeInterface $node, StringFormatterInterface $formatter)
     {
-        $output = $this->formatter->format($node);
-
+        $output = $formatter->format($node);
         $handle = fopen($this->target, 'w');
         fwrite($handle, $output);
     }

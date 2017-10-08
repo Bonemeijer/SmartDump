@@ -25,6 +25,9 @@
 
 namespace SmartDump\Dumper\String;
 
+use SmartDump\Formatter\StringFormatter\StringFormatterInterface;
+use SmartDump\Node\NodeInterface;
+
 /**
  * Interface StringDumperInterface
  *
@@ -33,4 +36,12 @@ namespace SmartDump\Dumper\String;
  */
 interface StringDumperInterface
 {
+    /**
+     * Dump a node
+     *
+     * @param NodeInterface            $node
+     * @param StringFormatterInterface $formatter
+     * @return void
+     */
+    public function dump(NodeInterface $node, StringFormatterInterface $formatter);
 }

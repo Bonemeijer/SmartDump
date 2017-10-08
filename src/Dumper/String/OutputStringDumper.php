@@ -36,25 +36,12 @@ use SmartDump\Node\NodeInterface;
  */
 class OutputStringDumper implements StringDumperInterface
 {
-    /** @var StringFormatterInterface */
-    protected $formatter;
-
-    /**
-     * Constructor
-     *
-     * @param StringFormatterInterface $formatter
-     */
-    public function __construct(StringFormatterInterface $formatter)
-    {
-        $this->formatter = $formatter;
-    }
-
     /**
      * @inheritdoc
      */
-    public function dump(NodeInterface $node)
+    public function dump(NodeInterface $node, StringFormatterInterface $formatter)
     {
-        $output = $this->formatter->format($node);
+        $output = $formatter->format($node);
 
         echo $output;
     }
