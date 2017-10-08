@@ -23,23 +23,29 @@
  * SOFTWARE.
  */
 
-namespace SmartDump\Formatter\StringFormatter\Dom;
+namespace SmartDump\Formatter\StringFormatter\Dom\SimpleHtml;
+
+use SmartDump\Formatter\StringFormatter\Dom\MarkupDecoratorBase;
+use SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\Decorator\BasicStructureDecorator;
+use SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\Decorator\LightColorSchemeDecorator;
 
 /**
- * Class MarkupDecorator
+ * Class DefaultSimpleHtmlMarkup
  *
  * @package    SmartDump
  * @subpackage Formatter
  */
-abstract class MarkupDecorator extends MarkupDecoratorBase
+class DefaultSimpleHtmlMarkup extends MarkupDecoratorBase
 {
     /**
      * Constructor
-     *
-     * @param MarkupInterface $markupDocument
      */
-    public function __construct(MarkupInterface $markupDocument)
+    public function __construct()
     {
-        $this->markupDocument = $markupDocument;
+        $markup = new SimpleHtmlMarkup();
+        $markup = new BasicStructureDecorator($markup);
+        $markup = new LightColorSchemeDecorator($markup);
+
+        $this->markupDocument = $markup;
     }
 }
