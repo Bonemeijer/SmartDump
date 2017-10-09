@@ -73,7 +73,7 @@ which will just echo the output to the screen.
 
 Available dumpers:
 
-* `OutputDumper` - simple echo's the output
+* `OutputDumper` - simply echo's the output
 * `StreamDumper` - dumps the formatted output to a file or stream
 
 To globally use a different dumper for all `SmartDump::dump()` calls:
