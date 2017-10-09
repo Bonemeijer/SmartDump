@@ -23,20 +23,19 @@
  * SOFTWARE.
  */
 
-namespace SmartDump\Dumper\String;
+namespace SmartDump\Dumper;
 
-use SmartDump\Dumper\FormatterNotSupportedException;
 use SmartDump\Formatter\FormatterInterface;
 use SmartDump\Formatter\StringFormatter\StringFormatterInterface;
 use SmartDump\Node\NodeInterface;
 
 /**
- * Class OutputStringDumper
+ * Class OutputDumper
  *
  * @package    SmartDump
  * @subpackage Dumper
  */
-class OutputStringDumper implements StringDumperInterface
+class OutputDumper implements DumperInterface
 {
     /** @var bool */
     protected $autoExit;

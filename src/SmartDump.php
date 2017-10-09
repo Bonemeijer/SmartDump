@@ -26,7 +26,7 @@
 namespace SmartDump;
 
 use SmartDump\Dumper\DumperInterface;
-use SmartDump\Dumper\String\OutputStringDumper;
+use SmartDump\Dumper\OutputDumper;
 use SmartDump\Formatter\FormatterInterface;
 use SmartDump\Formatter\StringFormatter\DefaultCallbackStringFormatter;
 use SmartDump\Node\DefaultNodeFactory;
@@ -108,7 +108,7 @@ class SmartDump
     public static function getDumper()
     {
         if (null === self::$dumper) {
-            self::$dumper = new OutputStringDumper();
+            self::$dumper = new OutputDumper();
         }
 
         return self::$dumper;
