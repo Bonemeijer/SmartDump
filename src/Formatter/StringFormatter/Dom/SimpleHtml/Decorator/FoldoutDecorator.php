@@ -29,12 +29,12 @@ use DOMDocument;
 use SmartDump\Formatter\StringFormatter\Dom\MarkupDecorator;
 
 /**
- * Class BasicStructureDecorator
+ * Class FoldoutDecorator
  *
  * @package    SmartDump
  * @subpackage Formatter
  */
-class BasicStructureDecorator extends MarkupDecorator
+class FoldoutDecorator extends MarkupDecorator
 {
     /**
      * @inheritdoc
@@ -45,8 +45,24 @@ class BasicStructureDecorator extends MarkupDecorator
 
         $element = $domDocument->createElement(
             'style',
-            file_get_contents(__DIR__ . '/_resources/basic-structure.css')
+            file_get_contents(__DIR__ . '/_resources/foldout.css')
         );
+
+        $domDocument->appendChild($element);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function appendFoot(DOMDocument $domDocument)
+    {
+        $this->markupDocument->appendFoot($domDocument);
+
+        $element = $domDocument->createElement(
+            'script',
+            file_get_contents(__DIR__ . '/_resources/foldout.js')
+        );
+        $element->setAttribute('type', 'text/javascript');
 
         $domDocument->appendChild($element);
     }

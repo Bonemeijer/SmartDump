@@ -1,0 +1,12 @@
+#smartdump-simplehtml .aggregate-node .aggregate-node .aggregate-node-name {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#smartdump-simplehtml .aggregate-node .aggregate-node .aggregate-children-container {
+    display: none;
+}
+
+#smartdump-simplehtml .aggregate-node .aggregate-node .aggregate-children-container.open {
+    display: block;
+}
