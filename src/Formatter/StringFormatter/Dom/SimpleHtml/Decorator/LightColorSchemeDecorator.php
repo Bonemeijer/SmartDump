@@ -64,7 +64,8 @@ class LightColorSchemeDecorator extends MarkupDecorator
             }
             
             #smartdump-simplehtml .boolean-node,
-            #smartdump-simplehtml .null-node {
+            #smartdump-simplehtml .null-node,
+            #smartdump-simplehtml .resource-node {
                 color: #860088;
             }
         '
