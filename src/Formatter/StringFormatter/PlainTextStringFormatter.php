@@ -35,11 +35,7 @@ use SmartDump\Node\NodeInterface;
  */
 class PlainTextStringFormatter implements StringFormatterInterface
 {
-    const DEFAULT_MAX_DEPTH          = 5;
     const DEFAULT_INDENTATION_STRING = '    ';
-
-    /** @var int */
-    protected $maxDepth;
 
     /** @var string */
     protected $indentationString;
@@ -47,14 +43,11 @@ class PlainTextStringFormatter implements StringFormatterInterface
     /**
      * Constructor
      *
-     * @param int    $maxDepth
      * @param string $indentationString
      */
     public function __construct(
-        $maxDepth = self::DEFAULT_MAX_DEPTH,
         $indentationString = self::DEFAULT_INDENTATION_STRING
     ) {
-        $this->maxDepth          = $maxDepth;
         $this->indentationString = $indentationString;
     }
 
@@ -107,11 +100,6 @@ class PlainTextStringFormatter implements StringFormatterInterface
      */
     protected function formatAggregateNode(NodeInterface $node, $currentDepth = 0)
     {
-        // check for max depth setting
-        if ($currentDepth >= $this->maxDepth) {
-            return $node->getStringValue() . ' *MAX_DEPTH*';
-        }
-
         $output = '';
         $output .= $node->getStringValue() . ' (' . PHP_EOL;
 
