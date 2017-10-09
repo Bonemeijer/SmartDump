@@ -86,4 +86,12 @@ abstract class MarkupDecoratorBase implements MarkupInterface
     {
         return $this->markupDocument->aggregateChildNode($domDocument, $node);
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function appendFoot(DOMDocument $domDocument)
+    {
+        $this->markupDocument->appendFoot($domDocument);
+    }
 }

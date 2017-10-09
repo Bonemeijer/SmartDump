@@ -105,4 +105,12 @@ interface MarkupInterface
      * @return DOMElement
      */
     public function aggregateChildNode(DOMDocument $domDocument, NodeInterface $node);
+
+    /**
+     * Optionally append a foot element which may contain styles, scripts etc.
+     *
+     * @param DOMDocument $domDocument
+     * @return void
+     */
+    public function appendFoot(DOMDocument $domDocument);
 }

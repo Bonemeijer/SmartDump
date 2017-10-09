@@ -26,7 +26,7 @@
 namespace SmartDump\Formatter\StringFormatter\Callback;
 
 use SmartDump\Formatter\FormatterInterface;
-use SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\DefaultSimpleHtmlMarkup;
+use SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\SimpleHtmlMarkupConfigurator;
 use SmartDump\Formatter\StringFormatter\DomStringFormatter;
 
 /**
@@ -47,7 +47,7 @@ class AlwaysSimpleHtmlCallback
     public function __invoke()
     {
         return new DomStringFormatter(
-            new DefaultSimpleHtmlMarkup()
+            new SimpleHtmlMarkupConfigurator()
         );
     }
 }

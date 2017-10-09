@@ -45,30 +45,30 @@ class LightColorSchemeDecorator extends MarkupDecorator
 
         $element = $domDocument->createElement(
             'style',
-            '
-            #smartdump-simplehtml {
-                background: #FFF; 
-                color: #000;
-            }
-            
-            #smartdump-simplehtml .aggregate-child-name .visibility {
-                color: #999;
-            }
-            
-            #smartdump-simplehtml .aggregate-child-name .static {
-                color: #999;
-            }
-            
-            #smartdump-simplehtml .string-node {
-                color: #10720E;
-            }
-            
-            #smartdump-simplehtml .boolean-node,
-            #smartdump-simplehtml .null-node,
-            #smartdump-simplehtml .resource-node {
-                color: #860088;
-            }
-        '
+            <<<STYLE
+#smartdump-simplehtml {
+    background: #FFF; 
+    color: #000;
+}
+
+#smartdump-simplehtml .aggregate-child-name .visibility {
+    color: #999;
+}
+
+#smartdump-simplehtml .aggregate-child-name .static {
+    color: #999;
+}
+
+#smartdump-simplehtml .string-node {
+    color: #10720E;
+}
+
+#smartdump-simplehtml .boolean-node,
+#smartdump-simplehtml .null-node,
+#smartdump-simplehtml .resource-node {
+    color: #860088;
+}
+STYLE
         );
 
         $domDocument->appendChild($element);

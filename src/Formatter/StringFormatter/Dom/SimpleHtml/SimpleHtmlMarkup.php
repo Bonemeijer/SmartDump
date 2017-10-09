@@ -128,4 +128,11 @@ class SimpleHtmlMarkup implements MarkupInterface
 
         return $nodeContainer;
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function appendFoot(DOMDocument $domDocument)
+    {
+    }
 }

@@ -68,6 +68,8 @@ class DomStringFormatter implements StringFormatterInterface
 
         $domDocument->appendChild($container);
 
+        $this->markupDocument->appendFoot($domDocument);
+
         return $domDocument->saveHTML();
     }
 

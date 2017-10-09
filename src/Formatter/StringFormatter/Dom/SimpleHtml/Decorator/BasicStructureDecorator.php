@@ -45,88 +45,94 @@ class BasicStructureDecorator extends MarkupDecorator
 
         $element = $domDocument->createElement(
             'style',
-            '
-            #smartdump-simplehtml {
-                text-align: left; 
-                font-family: Courier,monospace;
-                font-size: 14px; 
-                line-height: 16px; 
-                padding: 10px;
-            }
-            
-            #smartdump-simplehtml .scalar-node {
-                float: left;
-            }
-            
-            #smartdump-simplehtml .aggregate-children-container {
-                padding-left: 0;
-            }
-            
-            #smartdump-simplehtml .aggregate-children-container .aggregate-children-container {
-                padding-left: 34px;
-            }
-            
-            #smartdump-simplehtml .aggregate-children-container:before {
-                display: block;
-                content: "(";
-            }
-            
-            #smartdump-simplehtml .aggregate-children-container:after {
-                display: block;
-                content: ")";         
-            }
-            
-            #smartdump-simplehtml .aggregate-child-node {
-                overflow: auto;
-                padding-left: 34px;
-            }
-            
-            #smartdump-simplehtml .aggregate-child-name {
-                float:left;
-                overflow: auto;
-            }
-            
-            #smartdump-simplehtml .aggregate-child-name:before {
-                float: left;
-                content: "[";
-            }
-            
-            #smartdump-simplehtml .aggregate-child-name:after {
-                float: left;
-                content: "]";
-            }
-            
-            #smartdump-simplehtml .aggregate-child-name span {
-                float: left;
-            }
-            
-            #smartdump-simplehtml .aggregate-child-name .visibility:before {
-                content: ":";
-            }
-            
-            #smartdump-simplehtml .aggregate-child-name .static:before {
-                content: ":";
-            }
-            
-            #smartdump-simplehtml .aggregate-child-name-separator {
-                float: left;
-                margin: 0 8px;
-            }
-            
-            /* Specific node types */
-            #smartdump-simplehtml .string-node:before {
-                content: "\"";
-            }
-            
-            #smartdump-simplehtml .string-node:after {
-                content: "\"";
-            }
-            
-            #smartdump-simplehtml .boolean-node,
-            #smartdump-simplehtml .null-node {
-                text-transform: uppercase;
-            }
-        '
+            <<<STYLE
+#smartdump-simplehtml {
+    text-align: left; 
+    font-family: Courier,monospace;
+    font-size: 14px; 
+    line-height: 16px; 
+    padding: 10px;
+}
+
+#smartdump-simplehtml .scalar-node {
+    float: left;
+}
+
+#smartdump-simplehtml .aggregate-node {
+}
+
+#smartdump-simplehtml .aggregate-node-name {
+}
+
+#smartdump-simplehtml .aggregate-children-container {
+    padding-left: 0;
+}
+
+#smartdump-simplehtml .aggregate-children-container .aggregate-children-container {
+    padding-left: 34px;
+}
+
+#smartdump-simplehtml .aggregate-children-container:before {
+    display: block;
+    content: "(";
+}
+
+#smartdump-simplehtml .aggregate-children-container:after {
+    display: block;
+    content: ")";         
+}
+
+#smartdump-simplehtml .aggregate-child-node {
+    overflow: auto;
+    padding-left: 34px;
+}
+
+#smartdump-simplehtml .aggregate-child-name {
+    float:left;
+    overflow: auto;
+}
+
+#smartdump-simplehtml .aggregate-child-name:before {
+    float: left;
+    content: "[";
+}
+
+#smartdump-simplehtml .aggregate-child-name:after {
+    float: left;
+    content: "]";
+}
+
+#smartdump-simplehtml .aggregate-child-name span {
+    float: left;
+}
+
+#smartdump-simplehtml .aggregate-child-name .visibility:before {
+    content: ":";
+}
+
+#smartdump-simplehtml .aggregate-child-name .static:before {
+    content: ":";
+}
+
+#smartdump-simplehtml .aggregate-child-name-separator {
+    float: left;
+    margin: 0 8px;
+}
+
+/* Specific node types */
+#smartdump-simplehtml .string-node:before {
+    content: "\"";
+}
+
+#smartdump-simplehtml .string-node:after {
+    content: "\"";
+}
+
+#smartdump-simplehtml .boolean-node,
+#smartdump-simplehtml .null-node {
+    text-transform: uppercase;
+}
+STYLE
         );
 
         $domDocument->appendChild($element);

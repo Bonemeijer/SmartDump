@@ -27,24 +27,31 @@ namespace SmartDump\Formatter\StringFormatter\Dom\SimpleHtml;
 
 use SmartDump\Formatter\StringFormatter\Dom\MarkupDecoratorBase;
 use SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\Decorator\BasicStructureDecorator;
+use SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\Decorator\FoldoutDecorator;
 use SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\Decorator\LightColorSchemeDecorator;
 
 /**
- * Class DefaultSimpleHtmlMarkup
+ * Class SimpleHtmlMarkupConfigurator
  *
  * @package    SmartDump
  * @subpackage Formatter
  */
-class DefaultSimpleHtmlMarkup extends MarkupDecoratorBase
+class SimpleHtmlMarkupConfigurator extends MarkupDecoratorBase
 {
     /**
      * Constructor
+     *
+     * @param bool $enableFoldout
      */
-    public function __construct()
+    public function __construct( $enableFoldout = true )
     {
         $markup = new SimpleHtmlMarkup();
         $markup = new BasicStructureDecorator($markup);
         $markup = new LightColorSchemeDecorator($markup);
+
+        if ($enableFoldout) {
+            $markup = new FoldoutDecorator($markup);
+        }
 
         $this->markupDocument = $markup;
     }
