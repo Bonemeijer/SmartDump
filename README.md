@@ -16,8 +16,8 @@ By default, SmartDump is configured to detect where you are debugging from and w
 or html. For example: when you dump from the commandline, a plaintext output is used. But when you are 
 debugging from a browser, an interactive HTML output is used.
 
-There is a main `SmartDump` class, which provides a friendly global interface to debug from anywhere in
-your code. But don't worry, you can use and configure your own instances too.
+There is a main `SmartDump` class, which provides a friendly global interface to debug a variable anywhere 
+in your code. But don't worry, you can use and configure your own instances too.
 
 ```php
 \SmartDump\SmartDump::dump($variable);
@@ -44,7 +44,7 @@ These Nodes will then be passed to a *Dumper*, which will accept *Formatter* to 
 
 ### Formatters
 
-A formatter formats the `Node` to output that can be handles by a *Dumper*. 
+A formatter formats the *Node* to output that can be handles by a *Dumper*. 
 At this time there are only string type formatters, which will render a *Node* to a string.
 
 By default, the `ContextAwareStringFormatter` will be used, which will return a formatter based on where
