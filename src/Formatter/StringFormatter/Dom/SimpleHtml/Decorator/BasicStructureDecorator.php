@@ -83,14 +83,29 @@ class BasicStructureDecorator extends MarkupDecorator
             
             #smartdump-simplehtml .aggregate-child-name {
                 float:left;
+                overflow: auto;
             }
             
             #smartdump-simplehtml .aggregate-child-name:before {
+                float: left;
                 content: "[";
             }
             
             #smartdump-simplehtml .aggregate-child-name:after {
+                float: left;
                 content: "]";
+            }
+            
+            #smartdump-simplehtml .aggregate-child-name span {
+                float: left;
+            }
+            
+            #smartdump-simplehtml .aggregate-child-name .visibility:before {
+                content: ":";
+            }
+            
+            #smartdump-simplehtml .aggregate-child-name .static:before {
+                content: ":";
             }
             
             #smartdump-simplehtml .aggregate-child-name-separator {

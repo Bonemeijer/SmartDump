@@ -51,6 +51,14 @@ class LightColorSchemeDecorator extends MarkupDecorator
                 color: #000;
             }
             
+            #smartdump-simplehtml .aggregate-child-name .visibility {
+                color: #999;
+            }
+            
+            #smartdump-simplehtml .aggregate-child-name .static {
+                color: #999;
+            }
+            
             #smartdump-simplehtml .string-node {
                 color: #10720E;
             }

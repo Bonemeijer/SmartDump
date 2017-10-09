@@ -97,17 +97,35 @@ class SimpleHtmlMarkup implements MarkupInterface
      */
     public function aggregateChildNode(DOMDocument $domDocument, NodeInterface $node)
     {
-        $element = $domDocument->createElement('div');
-        $element->setAttribute('class', 'aggregate-child-node');
+        $nodeContainer = $domDocument->createElement('div');
+        $nodeContainer->setAttribute('class', 'aggregate-child-node');
 
-        $nameElement = $domDocument->createElement('div', $node->getName());
-        $nameElement->setAttribute('class', 'aggregate-child-name');
-        $element->appendChild($nameElement);
+        $nameContainer = $domDocument->createElement('div');
+        $nameContainer->setAttribute('class', 'aggregate-child-name');
+        $nodeContainer->appendChild($nameContainer);
 
-        $nameElement = $domDocument->createElement('div', '=>');
-        $nameElement->setAttribute('class', 'aggregate-child-name-separator');
-        $element->appendChild($nameElement);
+        $nameElement = $domDocument->createElement('span', $node->getName());
+        $nameElement->setAttribute('class', 'name');
+        $nameContainer->appendChild($nameElement);
 
-        return $element;
+        $visibility = $node->getVisibility();
+
+        if (null !== $visibility) {
+            $visibilityElement = $domDocument->createElement('span', $visibility);
+            $visibilityElement->setAttribute('class', 'visibility');
+            $nameContainer->appendChild($visibilityElement);
+        }
+
+        if ($node->isStatic()) {
+            $visibilityElement = $domDocument->createElement('span', 'static');
+            $visibilityElement->setAttribute('class', 'static');
+            $nameContainer->appendChild($visibilityElement);
+        }
+
+        $separatorElement = $domDocument->createElement('div', '=>');
+        $separatorElement->setAttribute('class', 'aggregate-child-name-separator');
+        $nodeContainer->appendChild($separatorElement);
+
+        return $nodeContainer;
     }
 }
