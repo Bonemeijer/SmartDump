@@ -32,12 +32,12 @@ use SmartDump\Formatter\StringFormatter\Callback\PostmanUserAgentCallback;
 use SmartDump\Formatter\StringFormatter\Callback\XmlHttpRequestCallback;
 
 /**
- * Class DefaultCallbackStringFormatter
+ * Class ContextAwareStringFormatter
  *
  * @package    SmartDump
  * @subpackage Formatter
  */
-class DefaultCallbackStringFormatter extends CallbackStringFormatter
+class ContextAwareStringFormatter extends CallbackStringFormatter
 {
     /**
      * Constructor

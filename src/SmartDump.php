@@ -28,7 +28,7 @@ namespace SmartDump;
 use SmartDump\Dumper\DumperInterface;
 use SmartDump\Dumper\OutputDumper;
 use SmartDump\Formatter\FormatterInterface;
-use SmartDump\Formatter\StringFormatter\DefaultCallbackStringFormatter;
+use SmartDump\Formatter\StringFormatter\ContextAwareStringFormatter;
 use SmartDump\Node\DefaultNodeFactory;
 use SmartDump\Node\NodeFactoryInterface;
 
@@ -83,7 +83,7 @@ class SmartDump
     public static function getFormatter()
     {
         if (null === self::$formatter) {
-            self::$formatter = new DefaultCallbackStringFormatter();
+            self::$formatter = new ContextAwareStringFormatter();
         }
 
         return self::$formatter;
