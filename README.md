@@ -101,7 +101,7 @@ SmartDump uses [SemVer](http://semver.org/) for versioning. For the versions ava
 
 * **Maurice Bonemeijer** - *Initial work* - [Bonemeijer](https://github.com/Bonemeijer)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this 
+See also the list of [contributors](https://github.com/Bonemeijer/SmartDump/contributors) who participated in this 
 project.
 
 
