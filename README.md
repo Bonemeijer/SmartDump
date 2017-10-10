@@ -106,8 +106,7 @@ To globally use a different dumper for all `SmartDump::dump()` calls:
 
 ## Deployment
 
-Don't. Don't deploy debug tools. Which is why I recommend using the `--dev` flag during your composer 
-require. 
+Don't. Don't deploy debug tools. Which is why I recommend using the `--dev` flag during installation.
 
 
 ## Versioning
