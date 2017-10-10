@@ -111,3 +111,9 @@ project.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+
+## Links
+
+* [Travis-CI build on travis-ci.org](https://travis-ci.org/Bonemeijer/SmartDump)
+* [SonarQube report on sonarcloud.io](https://sonarcloud.io/dashboard?id=bonemeijer%3Asmartdump)
