@@ -34,9 +34,16 @@ in your code. But don't worry, you can use and configure your own instances too.
 Even easier are the shortcut functions. These live in the global namespace so you don't have to do any
 imports when you quickly want to debug a variable.
 
-...
+Available functions:
 
-**TIP** - the shortcut functions also use the global SmartDump class, so you can configure the desired
+* `smartdump($variable)` - shortcut for `\SmartDump\SmartDump::dump($variable);`
+* `smartdump_text($variable)` - dump plaintext to output
+* `smartdump_html($variable)` - dump simplehtml to output
+* `smartdump_text_stream` - dump plaintext to a file or url
+* `d($variabe)` - dump a context aware format to output
+* `o($variabe)` - dump a context aware format to output, clear output buffer and exit()
+
+**TIP** - the shortcut function `smartdump()` uses the global SmartDump class, so you can configure the desired
           behaviour through the SmartDump class.
 
 ## Advanced usage
