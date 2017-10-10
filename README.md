@@ -2,6 +2,9 @@
 
 A smarter alternative to var_dump for PHP5.6+
 
+[![Build Status](https://travis-ci.org/Bonemeijer/SmartDump.svg?branch=master)](https://travis-ci.org/Bonemeijer/SmartDump)
+
+
 ### Installing
 
 This project is still in beta. During this phase you can checkout the `dev-master` branch.
