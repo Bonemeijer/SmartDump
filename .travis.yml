@@ -1,0 +1,6 @@
+language: php
+addons:
+  sonarcloud:
+    organization: "bonemeijer-github"
+script:
+  - sonar-scanner
