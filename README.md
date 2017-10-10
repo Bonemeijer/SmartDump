@@ -3,7 +3,9 @@
 A smarter alternative to var_dump for PHP5.6+
 
 [![Build Status](https://travis-ci.org/Bonemeijer/SmartDump.svg?branch=master)](https://travis-ci.org/Bonemeijer/SmartDump)
-
+[![Latest Stable Version](https://poser.pugx.org/bonemeijer/smartdump/v/stable)](https://packagist.org/packages/bonemeijer/smartdump)
+[![Total Downloads](https://poser.pugx.org/bonemeijer/smartdump/downloads)](https://packagist.org/packages/bonemeijer/smartdump)
+[![License](https://poser.pugx.org/bonemeijer/smartdump/license)](https://packagist.org/packages/bonemeijer/smartdump)
 
 ### Installing
 
