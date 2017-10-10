@@ -48,10 +48,15 @@ Available functions:
 
 ## Advanced usage
 
-### Nodes
-
 SmartDump will internally convert any passed variable to a *Node* using a *NodeFactory*.
 These Nodes will then be passed to a *Dumper*, which will accept *Formatter* to render an output format.
+
+
+### Nodes
+
+A *Node* is basically an internal representation of a variable. The `DefaultNodeFactory` has support for
+all regular PHP variable types like booleans, strings, integers, floats, arrays, objects, resources and 
+NULL values.
 
 
 ### Formatters
