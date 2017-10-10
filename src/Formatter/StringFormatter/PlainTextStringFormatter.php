@@ -56,12 +56,7 @@ class PlainTextStringFormatter implements StringFormatterInterface
      */
     public function format(NodeInterface $node)
     {
-        $output = $this->formatNode($node);
-
-        // always end with a newline
-        $output .= PHP_EOL;
-
-        return $output;
+        return $this->formatNode($node) . PHP_EOL;
     }
 
     /**
@@ -103,7 +98,7 @@ class PlainTextStringFormatter implements StringFormatterInterface
         $output = '';
         $output .= $node->getStringValue() . ' (' . PHP_EOL;
 
-        foreach ($node->getChildren() as $key => $childNode) {
+        foreach ($node->getChildren() as $childNode) {
             $childName       = $childNode->getName();
             $childVisibility = $childNode->getVisibility();
 

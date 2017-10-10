@@ -141,6 +141,7 @@ class OutputDumper implements DumperInterface
             /** @noinspection PhpUsageOfSilenceOperatorInspection */
             /** @noinspection PhpStatementHasEmptyBodyInspection */
             while (@ob_end_clean()) {
+                // intentionally empty
             }
         }
     }

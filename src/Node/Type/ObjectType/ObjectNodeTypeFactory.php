@@ -103,8 +103,6 @@ class ObjectNodeTypeFactory implements NodeTypeFactoryInterface
 
             $childNode->setName($property->getName());
 
-            $visibility = null;
-
             if ($property->isPublic()) {
                 $childNode->setVisibility(ObjectNodeType::VISIBILITY_PUBLIC);
             } elseif ($property->isProtected()) {
