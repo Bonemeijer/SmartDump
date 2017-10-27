@@ -20,3 +20,7 @@
 #smartdump-simplehtml .resource-node {
     color: #860088;
 }
+
+#smartdump-simplehtml .aggregate-node-foldout .aggregate-node-name {
+    color: #00F;
+}
