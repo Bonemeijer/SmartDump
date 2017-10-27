@@ -28,7 +28,7 @@ namespace SmartDump\Node\Type\ObjectType;
 use ReflectionObject;
 use SmartDump\Node\NodeFactoryInterface;
 use SmartDump\Node\NodeTypeNotSupportedException;
-use SmartDump\Node\Type\NodeTypeFactoryInterface;
+use SmartDump\Node\Type\NodeTypeFactory;
 
 /**
  * Class ObjectNodeTypeFactory
@@ -36,7 +36,7 @@ use SmartDump\Node\Type\NodeTypeFactoryInterface;
  * @package    SmartDump
  * @subpackage Node
  */
-class ObjectNodeTypeFactory implements NodeTypeFactoryInterface
+class ObjectNodeTypeFactory extends NodeTypeFactory
 {
     /** @var array */
     protected $objectHashes = [];
@@ -65,13 +65,24 @@ class ObjectNodeTypeFactory implements NodeTypeFactoryInterface
     /**
      * @inheritdoc
      */
-    public function create($variable)
+    public function create($variable, $currentDepth = 0)
     {
         if (!$this->supports($variable)) {
             throw NodeTypeNotSupportedException::createFor(gettype($variable), $this);
         }
 
         $variableClass = get_class($variable);
+
+        // check for max depth
+        if (null !== $this->maxDepth
+            && $currentDepth >= $this->maxDepth
+        ) {
+            $node = new ObjectNodeType();
+            $node->setAggregate(false);
+            $node->setStringValue($variableClass . ' *MAX_DEPTH*');
+
+            return $node;
+        }
 
         // track handled objects to prevent infinite recursion
         $variableObjectHash = spl_object_hash($variable);
@@ -98,7 +109,8 @@ class ObjectNodeTypeFactory implements NodeTypeFactoryInterface
 
             // create child node
             $childNode = $this->itemFactory->create(
-                $property->getValue($variable)
+                $property->getValue($variable),
+                $currentDepth+1
             );
 
             $childNode->setName($property->getName());

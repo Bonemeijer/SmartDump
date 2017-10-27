@@ -23,39 +23,29 @@
  * SOFTWARE.
  */
 
-namespace SmartDump\Node\Type\IntegerType;
-
-use SmartDump\Node\NodeTypeNotSupportedException;
-use SmartDump\Node\Type\NodeTypeFactory;
+namespace SmartDump\Node\Type;
 
 /**
- * Class IntegerNodeTypeFactory
+ * Class NodeTypeFactory
  *
  * @package    SmartDump
  * @subpackage Node
  */
-class IntegerNodeTypeFactory extends NodeTypeFactory
+abstract class NodeTypeFactory implements NodeTypeFactoryInterface
 {
-    /**
-     * @inheritdoc
-     */
-    public function supports($variable)
-    {
-        return is_int($variable);
-    }
+    /** @var int|null */
+    protected $maxDepth;
 
     /**
-     * @inheritdoc
+     * MaxDepth mutator
+     *
+     * @param int|null $value
+     * @return $this
      */
-    public function create($variable, $currentDepth = 0)
+    public function setMaxDepth($value)
     {
-        if (!$this->supports($variable)) {
-            throw NodeTypeNotSupportedException::createFor(gettype($variable), $this);
-        }
+        $this->maxDepth = $value;
 
-        $node = new IntegerNodeType();
-        $node->setStringValue((string) $variable);
-
-        return $node;
+        return $this;
     }
 }

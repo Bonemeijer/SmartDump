@@ -37,7 +37,8 @@ interface NodeFactoryInterface
      * Create a node from variable
      *
      * @param mixed $variable
+     * @param int   $currentDepth
      * @return NodeInterface
      */
-    public function create($variable);
+    public function create($variable, $currentDepth = 0);
 }

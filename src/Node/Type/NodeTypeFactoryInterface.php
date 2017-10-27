@@ -36,6 +36,14 @@ use SmartDump\Node\NodeFactoryInterface;
 interface NodeTypeFactoryInterface extends NodeFactoryInterface
 {
     /**
+     * Set max depth
+     *
+     * @param int $level
+     * @return void
+     */
+    public function setMaxDepth($level);
+
+    /**
      * Wether or not a variable is supported by this type factory
      *
      * @param mixed $variable

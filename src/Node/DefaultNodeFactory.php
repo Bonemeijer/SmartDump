@@ -45,9 +45,13 @@ class DefaultNodeFactory extends NodeFactory
     /**
      * Constructor
      * Adds default supported node type factories
+     *
+     * @param int $maxDepth
      */
-    public function __construct()
+    public function __construct($maxDepth = NodeFactory::DEFAULT_MAX_DEPTH)
     {
+        parent::__construct($maxDepth);
+
         // scalar types
         $this->addTypeFactory(new BooleanNodeTypeFactory());
         $this->addTypeFactory(new FloatNodeTypeFactory());

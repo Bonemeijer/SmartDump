@@ -26,7 +26,7 @@
 namespace SmartDump\Node\Type\FloatType;
 
 use SmartDump\Node\NodeTypeNotSupportedException;
-use SmartDump\Node\Type\NodeTypeFactoryInterface;
+use SmartDump\Node\Type\NodeTypeFactory;
 
 /**
  * Class FloatNodeTypeFactory
@@ -34,7 +34,7 @@ use SmartDump\Node\Type\NodeTypeFactoryInterface;
  * @package    SmartDump
  * @subpackage Node
  */
-class FloatNodeTypeFactory implements NodeTypeFactoryInterface
+class FloatNodeTypeFactory extends NodeTypeFactory
 {
     /**
      * @inheritdoc
@@ -47,7 +47,7 @@ class FloatNodeTypeFactory implements NodeTypeFactoryInterface
     /**
      * @inheritdoc
      */
-    public function create($variable)
+    public function create($variable, $currentDepth = 0)
     {
         if (!$this->supports($variable)) {
             throw NodeTypeNotSupportedException::createFor(gettype($variable), $this);

@@ -26,7 +26,7 @@
 namespace SmartDump\Node\Type\BooleanType;
 
 use SmartDump\Node\NodeTypeNotSupportedException;
-use SmartDump\Node\Type\NodeTypeFactoryInterface;
+use SmartDump\Node\Type\NodeTypeFactory;
 
 /**
  * Class BooleanNodeTypeFactory
@@ -34,7 +34,7 @@ use SmartDump\Node\Type\NodeTypeFactoryInterface;
  * @package    SmartDump
  * @subpackage Node
  */
-class BooleanNodeTypeFactory implements NodeTypeFactoryInterface
+class BooleanNodeTypeFactory extends NodeTypeFactory
 {
     /**
      * @inheritdoc
@@ -47,7 +47,7 @@ class BooleanNodeTypeFactory implements NodeTypeFactoryInterface
     /**
      * @inheritdoc
      */
-    public function create($variable)
+    public function create($variable, $currentDepth = 0)
     {
         if (!$this->supports($variable)) {
             throw NodeTypeNotSupportedException::createFor(gettype($variable), $this);

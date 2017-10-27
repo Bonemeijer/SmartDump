@@ -27,7 +27,7 @@ namespace SmartDump\Node\Type\ArrayType;
 
 use SmartDump\Node\NodeFactoryInterface;
 use SmartDump\Node\NodeTypeNotSupportedException;
-use SmartDump\Node\Type\NodeTypeFactoryInterface;
+use SmartDump\Node\Type\NodeTypeFactory;
 
 /**
  * Class ArrayNodeTypeFactory
@@ -35,7 +35,7 @@ use SmartDump\Node\Type\NodeTypeFactoryInterface;
  * @package    SmartDump
  * @subpackage Node
  */
-class ArrayNodeTypeFactory implements NodeTypeFactoryInterface
+class ArrayNodeTypeFactory extends NodeTypeFactory
 {
     /** @var NodeFactoryInterface */
     protected $itemFactory;
@@ -61,16 +61,28 @@ class ArrayNodeTypeFactory implements NodeTypeFactoryInterface
     /**
      * @inheritdoc
      */
-    public function create($variable)
+    public function create($variable, $currentDepth = 0)
     {
         if (!$this->supports($variable)) {
             throw NodeTypeNotSupportedException::createFor(gettype($variable), $this);
         }
 
+        // check for max depth
+        if (null !== $this->maxDepth
+            && $currentDepth >= $this->maxDepth
+        ) {
+            $node = new ArrayNodeType();
+            $node->setAggregate(false);
+            $node->setStringValue($node->getStringValue() . ' *MAX_DEPTH*');
+
+            return $node;
+        }
+
+        // add nodes for all array items
         $node = new ArrayNodeType();
 
         foreach ($variable as $key => $item) {
-            $childNode = $this->itemFactory->create($item);
+            $childNode = $this->itemFactory->create($item, $currentDepth+1);
             $childNode->setName($key);
 
             $node->addChild($childNode);

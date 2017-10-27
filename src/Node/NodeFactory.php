@@ -35,8 +35,40 @@ use SmartDump\Node\Type\NodeTypeFactoryInterface;
  */
 class NodeFactory implements NodeFactoryInterface
 {
+    const DEFAULT_MAX_DEPTH = 3;
+
+    /** @var int|null */
+    protected $maxDepth = self::DEFAULT_MAX_DEPTH;
+
     /** @var NodeTypeFactoryInterface[] */
     protected $typeFactories = [];
+
+    /**
+     * Constructor
+     *
+     * @param int|null $maxDepth
+     */
+    public function __construct($maxDepth = self::DEFAULT_MAX_DEPTH)
+    {
+        $this->maxDepth = $maxDepth;
+    }
+
+    /**
+     * MaxDepth mutator
+     *
+     * @param int|null $value
+     * @return $this
+     */
+    public function setMaxDepth($value)
+    {
+        $this->maxDepth = $value;
+
+        foreach ($this->getTypeFactories() as $typeFactory) {
+            $typeFactory->setMaxDepth($value);
+        }
+
+        return $this;
+    }
 
     /**
      * Add type factory
@@ -46,6 +78,8 @@ class NodeFactory implements NodeFactoryInterface
      */
     public function addTypeFactory(NodeTypeFactoryInterface $typeFactory)
     {
+        $typeFactory->setMaxDepth($this->maxDepth);
+
         array_unshift($this->typeFactories, $typeFactory);
     }
 
@@ -62,11 +96,11 @@ class NodeFactory implements NodeFactoryInterface
     /**
      * @inheritdoc
      */
-    public function create($variable)
+    public function create($variable, $currentDepth = 0)
     {
         foreach ($this->getTypeFactories() as $typeFactory) {
             if ($typeFactory->supports($variable)) {
-                return $typeFactory->create($variable);
+                return $typeFactory->create($variable, $currentDepth);
             }
         }
 
