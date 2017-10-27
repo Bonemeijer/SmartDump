@@ -27,6 +27,7 @@ namespace SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\Decorator;
 
 use DOMDocument;
 use SmartDump\Formatter\StringFormatter\Dom\MarkupDecorator;
+use SmartDump\Formatter\StringFormatter\Dom\MarkupInterface;
 
 /**
  * Class FoldoutDecorator
@@ -36,12 +37,33 @@ use SmartDump\Formatter\StringFormatter\Dom\MarkupDecorator;
  */
 class FoldoutDecorator extends MarkupDecorator
 {
+    /** @var MarkupInterface */
+    protected $markupDocument;
+
+    /**
+     * Constructor
+     *
+     * @param MarkupInterface $markupDocument
+     */
+    public function __construct(MarkupInterface $markupDocument)
+    {
+        $this->markupDocument = $markupDocument;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMarkupDocument()
+    {
+        return $this->markupDocument;
+    }
+
     /**
      * @inheritdoc
      */
     public function appendHead(DOMDocument $domDocument)
     {
-        $this->markupDocument->appendHead($domDocument);
+        $this->getMarkupDocument()->appendHead($domDocument);
 
         $element = $domDocument->createElement(
             'style',
@@ -56,7 +78,7 @@ class FoldoutDecorator extends MarkupDecorator
      */
     public function appendFoot(DOMDocument $domDocument)
     {
-        $this->markupDocument->appendFoot($domDocument);
+        $this->getMarkupDocument()->appendFoot($domDocument);
 
         $element = $domDocument->createElement(
             'script',

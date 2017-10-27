@@ -27,6 +27,7 @@ namespace SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\Decorator;
 
 use DOMDocument;
 use SmartDump\Formatter\StringFormatter\Dom\MarkupDecorator;
+use SmartDump\Formatter\StringFormatter\Dom\MarkupInterface;
 
 /**
  * Class LightColorSchemeDecorator
@@ -36,12 +37,33 @@ use SmartDump\Formatter\StringFormatter\Dom\MarkupDecorator;
  */
 class LightColorSchemeDecorator extends MarkupDecorator
 {
+    /** @var MarkupInterface */
+    protected $markupDocument;
+
+    /**
+     * Constructor
+     *
+     * @param MarkupInterface $markupDocument
+     */
+    public function __construct(MarkupInterface $markupDocument)
+    {
+        $this->markupDocument = $markupDocument;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMarkupDocument()
+    {
+        return $this->markupDocument;
+    }
+
     /**
      * @inheritdoc
      */
     public function appendHead(DOMDocument $domDocument)
     {
-        $this->markupDocument->appendHead($domDocument);
+        $this->getMarkupDocument()->appendHead($domDocument);
 
         $element = $domDocument->createElement(
             'style',

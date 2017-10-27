@@ -25,7 +25,8 @@
 
 namespace SmartDump\Formatter\StringFormatter\Dom\SimpleHtml;
 
-use SmartDump\Formatter\StringFormatter\Dom\MarkupDecoratorBase;
+use SmartDump\Formatter\StringFormatter\Dom\MarkupDecorator;
+use SmartDump\Formatter\StringFormatter\Dom\MarkupInterface;
 use SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\Decorator\BasicStructureDecorator;
 use SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\Decorator\FoldoutDecorator;
 use SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\Decorator\LightColorSchemeDecorator;
@@ -36,8 +37,11 @@ use SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\Decorator\LightColorSchem
  * @package    SmartDump
  * @subpackage Formatter
  */
-class SimpleHtmlMarkupConfigurator extends MarkupDecoratorBase
+class SimpleHtmlMarkupConfigurator extends MarkupDecorator
 {
+    /** @var MarkupInterface */
+    protected $markupDocument;
+
     /**
      * Constructor
      *
@@ -54,5 +58,13 @@ class SimpleHtmlMarkupConfigurator extends MarkupDecoratorBase
         }
 
         $this->markupDocument = $markup;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMarkupDocument()
+    {
+        return $this->markupDocument;
     }
 }

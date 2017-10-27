@@ -25,21 +25,77 @@
 
 namespace SmartDump\Formatter\StringFormatter\Dom;
 
+use DOMDocument;
+use SmartDump\Node\NodeInterface;
+
 /**
  * Class MarkupDecorator
  *
  * @package    SmartDump
  * @subpackage Formatter
  */
-abstract class MarkupDecorator extends MarkupDecoratorBase
+abstract class MarkupDecorator implements MarkupInterface
 {
     /**
-     * Constructor
+     * Get markup document
      *
-     * @param MarkupInterface $markupDocument
+     * @return MarkupInterface
      */
-    public function __construct(MarkupInterface $markupDocument)
+    abstract public function getMarkupDocument();
+
+    /**
+     * @inheritdoc
+     */
+    public function appendHead(DOMDocument $domDocument)
     {
-        $this->markupDocument = $markupDocument;
+        $this->getMarkupDocument()->appendHead($domDocument);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function container(DOMDocument $domDocument, NodeInterface $node)
+    {
+        return $this->getMarkupDocument()->container($domDocument, $node);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function scalarNode(DOMDocument $domDocument, NodeInterface $node)
+    {
+        return $this->getMarkupDocument()->scalarNode($domDocument, $node);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function aggregateNode(DOMDocument $domDocument, NodeInterface $node)
+    {
+        return $this->getMarkupDocument()->aggregateNode($domDocument, $node);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function aggregateChildrenContainer(DOMDocument $domDocument, NodeInterface $node)
+    {
+        return $this->getMarkupDocument()->aggregateChildrenContainer($domDocument, $node);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function aggregateChildNode(DOMDocument $domDocument, NodeInterface $node)
+    {
+        return $this->getMarkupDocument()->aggregateChildNode($domDocument, $node);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function appendFoot(DOMDocument $domDocument)
+    {
+        $this->getMarkupDocument()->appendFoot($domDocument);
     }
 }
