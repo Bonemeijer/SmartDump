@@ -11,10 +11,10 @@ The goal is to provide a friendly debug tool that is framework independent and w
 
 ### Installing
 
-This project is still in beta. During this phase you can checkout the `dev-master` branch.
+This project is still in beta. Backwards incompatible changes might be introduced during this time.
 
 ```
-composer require --dev bonemeijer/smartdump dev-master
+composer require --dev bonemeijer/smartdump
 ```
 
 ## Basic usage
