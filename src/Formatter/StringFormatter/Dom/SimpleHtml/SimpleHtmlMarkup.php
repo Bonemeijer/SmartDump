@@ -60,8 +60,9 @@ class SimpleHtmlMarkup implements MarkupInterface
      */
     public function scalarNode(DOMDocument $domDocument, NodeInterface $node)
     {
-        $element = $domDocument->createElement('div', $node->getStringValue());
+        $element = $domDocument->createElement('div');
         $element->setAttribute('class', 'scalar-node ' . implode(' ', $node->getTypes()));
+        $element->appendChild($domDocument->createTextNode($node->getStringValue()));
 
         return $element;
     }
@@ -74,8 +75,9 @@ class SimpleHtmlMarkup implements MarkupInterface
         $element = $domDocument->createElement('div');
         $element->setAttribute('class', 'aggregate-node ' . implode(' ', $node->getTypes()));
 
-        $nameElement = $domDocument->createElement('span', $node->getStringValue());
+        $nameElement = $domDocument->createElement('span');
         $nameElement->setAttribute('class', 'aggregate-node-name');
+        $nameElement->appendChild($domDocument->createTextNode($node->getStringValue()));
         $element->appendChild($nameElement);
 
         return $element;
@@ -104,15 +106,17 @@ class SimpleHtmlMarkup implements MarkupInterface
         $nameContainer->setAttribute('class', 'aggregate-child-name');
         $nodeContainer->appendChild($nameContainer);
 
-        $nameElement = $domDocument->createElement('span', $node->getName());
+        $nameElement = $domDocument->createElement('span');
         $nameElement->setAttribute('class', 'name');
+        $nameElement->appendChild($domDocument->createTextNode($node->getName()));
         $nameContainer->appendChild($nameElement);
 
         $visibility = $node->getVisibility();
 
         if (null !== $visibility) {
-            $visibilityElement = $domDocument->createElement('span', $visibility);
+            $visibilityElement = $domDocument->createElement('span');
             $visibilityElement->setAttribute('class', 'visibility');
+            $visibilityElement->appendChild($domDocument->createTextNode($visibility));
             $nameContainer->appendChild($visibilityElement);
         }
 
