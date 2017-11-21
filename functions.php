@@ -40,11 +40,12 @@ function smartdump($variable)
  * Uses DefaultNodeFactory, OutputDumper, PlainTextStringFormatter
  *
  * @param mixed $variable
+ * @param int   $maxDepth
  * @return void
  */
-function smartdump_text($variable)
+function smartdump_text($variable, $maxDepth = \SmartDump\Node\NodeFactory::DEFAULT_MAX_DEPTH)
 {
-    $nodeFactory = new \SmartDump\Node\DefaultNodeFactory();
+    $nodeFactory = new \SmartDump\Node\DefaultNodeFactory($maxDepth);
     $dumper      = new \SmartDump\Dumper\OutputDumper();
 
     $dumper->dump(
@@ -58,10 +59,11 @@ function smartdump_text($variable)
  *
  * Uses DefaultNodeFactory, OutputDumper, DomStringFormatter & SimpleHtmlMarkupConfigurator
  *
- * @param $variable
+ * @param mixed $variable
+ * @param int   $maxDepth
  * @return void
  */
-function smartdump_html($variable)
+function smartdump_html($variable, $maxDepth = \SmartDump\Node\NodeFactory::DEFAULT_MAX_DEPTH)
 {
     $nodeFactory = new \SmartDump\Node\DefaultNodeFactory();
     $dumper      = new \SmartDump\Dumper\OutputDumper();
@@ -81,11 +83,12 @@ function smartdump_html($variable)
  *
  * @param mixed  $variable
  * @param string $target
+ * @param int    $maxDepth
  * @return void
  */
-function smartdump_text_stream($variable, $target)
+function smartdump_text_stream($variable, $target, $maxDepth = \SmartDump\Node\NodeFactory::DEFAULT_MAX_DEPTH)
 {
-    $nodeFactory = new \SmartDump\Node\DefaultNodeFactory();
+    $nodeFactory = new \SmartDump\Node\DefaultNodeFactory($maxDepth);
     $dumper      = new \SmartDump\Dumper\StreamDumper($target);
 
     $dumper->dump(
@@ -99,12 +102,13 @@ if (!function_exists('d')) {
      * Dump a variable inline (without clearing output buffer or exiting)
      * Uses DefaultNodeFactory, OutputDumper, ContextAwareStringFormatter
      *
-     * @param $variable
+     * @param mixed $variable
+     * @param int   $maxDepth
      * @return void
      */
-    function d($variable)
+    function d($variable, $maxDepth = \SmartDump\Node\NodeFactory::DEFAULT_MAX_DEPTH)
     {
-        $nodeFactory = new \SmartDump\Node\DefaultNodeFactory();
+        $nodeFactory = new \SmartDump\Node\DefaultNodeFactory($maxDepth);
         $dumper      = new \SmartDump\Dumper\OutputDumper();
 
         $dumper->dump(
@@ -119,12 +123,13 @@ if (!function_exists('o')) {
      * Output a variable (with clearing output buffer and exiting)
      * Uses DefaultNodeFactory, OutputDumper, ContextAwareStringFormatter
      *
-     * @param $variable
+     * @param mixed $variable
+     * @param int   $maxDepth
      * @return void
      */
-    function o($variable)
+    function o($variable, $maxDepth = \SmartDump\Node\NodeFactory::DEFAULT_MAX_DEPTH)
     {
-        $nodeFactory = new \SmartDump\Node\DefaultNodeFactory();
+        $nodeFactory = new \SmartDump\Node\DefaultNodeFactory($maxDepth);
         $dumper      = new \SmartDump\Dumper\OutputDumper(true, true);
 
         $dumper->dump(
