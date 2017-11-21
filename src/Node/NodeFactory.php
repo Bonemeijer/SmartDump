@@ -35,7 +35,7 @@ use SmartDump\Node\Type\NodeTypeFactoryInterface;
  */
 class NodeFactory implements NodeFactoryInterface
 {
-    const DEFAULT_MAX_DEPTH = 3;
+    const DEFAULT_MAX_DEPTH = 5;
 
     /** @var int|null */
     protected $maxDepth = self::DEFAULT_MAX_DEPTH;
