@@ -102,15 +102,37 @@ class ObjectNodeTypeFactory extends NodeTypeFactory
         $node = new ObjectNodeType();
         $node->setStringValue($variableClass);
 
+        // find all properties that can be reflected directly
+        $properties       = [];
         $objectReflection = new ReflectionObject($variable);
 
         foreach ($objectReflection->getProperties() as $property) {
+            $properties[$property->getName()] = $property;
+        }
+
+        // include any private properties of parent classes
+        $parentClassReflection = $objectReflection->getParentClass();
+
+        while ($parentClassReflection) {
+            foreach ($parentClassReflection->getProperties() as $property) {
+                $propertyName = $property->getName();
+
+                if (!isset($properties[$propertyName])) {
+                    $properties[$propertyName] = $property;
+                }
+            }
+
+            $parentClassReflection = $parentClassReflection->getParentClass();
+        }
+
+        // created nodes for all properties
+        foreach ($properties as $property) {
             $property->setAccessible(true);
 
             // create child node
             $childNode = $this->itemFactory->create(
                 $property->getValue($variable),
-                $currentDepth+1
+                $currentDepth + 1
             );
 
             $childNode->setName($property->getName());
