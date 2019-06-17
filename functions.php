@@ -104,10 +104,13 @@ if (!function_exists('d')) {
      *
      * @param mixed $variable
      * @param int   $maxDepth
+     * @param bool  $foldoutByDefault
      * @return void
      */
-    function d($variable, $maxDepth = \SmartDump\Node\NodeFactory::DEFAULT_MAX_DEPTH)
+    function d($variable, $maxDepth = \SmartDump\Node\NodeFactory::DEFAULT_MAX_DEPTH, $foldoutByDefault = false)
     {
+        \SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\Decorator\FoldoutDecorator::setFoldoutByDefault($foldoutByDefault);
+
         $nodeFactory = new \SmartDump\Node\DefaultNodeFactory($maxDepth);
         $dumper      = new \SmartDump\Dumper\OutputDumper();
 
@@ -125,10 +128,13 @@ if (!function_exists('o')) {
      *
      * @param mixed $variable
      * @param int   $maxDepth
+     * @param bool  $foldoutByDefault
      * @return void
      */
-    function o($variable, $maxDepth = \SmartDump\Node\NodeFactory::DEFAULT_MAX_DEPTH)
+    function o($variable, $maxDepth = \SmartDump\Node\NodeFactory::DEFAULT_MAX_DEPTH, $foldoutByDefault = false)
     {
+        \SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\Decorator\FoldoutDecorator::setFoldoutByDefault($foldoutByDefault);
+
         $nodeFactory = new \SmartDump\Node\DefaultNodeFactory($maxDepth);
         $dumper      = new \SmartDump\Dumper\OutputDumper(true, true);
 

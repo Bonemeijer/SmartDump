@@ -28,6 +28,7 @@ namespace SmartDump\Formatter\StringFormatter\Dom\SimpleHtml\Decorator;
 use DOMDocument;
 use SmartDump\Formatter\StringFormatter\Dom\MarkupDecorator;
 use SmartDump\Formatter\StringFormatter\Dom\MarkupInterface;
+use SmartDump\Node\NodeInterface;
 
 /**
  * Class FoldoutDecorator
@@ -37,8 +38,14 @@ use SmartDump\Formatter\StringFormatter\Dom\MarkupInterface;
  */
 class FoldoutDecorator extends MarkupDecorator
 {
+    /** @var bool */
+    protected static $foldoutByDefault = false;
+
     /** @var MarkupInterface */
     protected $markupDocument;
+
+    /** @var string */
+    protected $namespace;
 
     /**
      * Constructor
@@ -48,6 +55,23 @@ class FoldoutDecorator extends MarkupDecorator
     public function __construct(MarkupInterface $markupDocument)
     {
         $this->markupDocument = $markupDocument;
+        $this->namespace = uniqid('', true);
+    }
+
+    /**
+     * @return bool
+     */
+    public static function isFoldoutByDefault()
+    {
+        return self::$foldoutByDefault;
+    }
+
+    /**
+     * @param bool $foldoutByDefault
+     */
+    public static function setFoldoutByDefault($foldoutByDefault)
+    {
+        self::$foldoutByDefault = $foldoutByDefault;
     }
 
     /**
@@ -65,12 +89,21 @@ class FoldoutDecorator extends MarkupDecorator
     {
         $this->getMarkupDocument()->appendHead($domDocument);
 
-        $element = $domDocument->createElement(
-            'style',
-            file_get_contents(__DIR__ . '/_resources/foldout.css')
-        );
+        $element = $domDocument->createElement('style', file_get_contents(__DIR__ . '/_resources/foldout.css'));
 
         $domDocument->appendChild($element);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function container(DOMDocument $domDocument, NodeInterface $node)
+    {
+        $container = parent::container($domDocument, $node);
+        $container->setAttribute('data-foldout-namespace', $this->namespace);
+        $container->setAttribute('data-foldout-state', (int) self::isFoldoutByDefault());
+
+        return $container;
     }
 
     /**
@@ -80,10 +113,10 @@ class FoldoutDecorator extends MarkupDecorator
     {
         $this->getMarkupDocument()->appendFoot($domDocument);
 
-        $element = $domDocument->createElement(
-            'script',
-            file_get_contents(__DIR__ . '/_resources/foldout.js')
-        );
+        $scriptContent = file_get_contents(__DIR__ . '/_resources/foldout.js');
+        $scriptContent = str_replace('FOLDOUT_NAMESPACE', $this->namespace, $scriptContent);
+
+        $element = $domDocument->createElement('script', $scriptContent);
         $element->setAttribute('type', 'text/javascript');
 
         $domDocument->appendChild($element);
