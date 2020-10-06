@@ -130,8 +130,16 @@ class ObjectNodeTypeFactory extends NodeTypeFactory
             $property->setAccessible(true);
 
             // create child node
+            if (method_exists($property, 'isInitialized')
+                && !$property->isInitialized($variable)
+            ) {
+                $propertyValue = null;
+            } else {
+                $propertyValue = $property->getValue($variable);
+            }
+
             $childNode = $this->itemFactory->create(
-                $property->getValue($variable),
+                $propertyValue,
                 $currentDepth + 1
             );
 
