@@ -72,7 +72,7 @@ class DateTimeNodeTypeFactory extends NodeTypeFactory
         $node->setStringValue('');
 
         $nodeData = [
-            'date'     => $variable->format('d-m-y H:I;s.u'),
+            'date'     => $variable->format('d-m-y H:I:s.u'),
             'timezone' => $variable->getTimezone()->getName(),
         ];
 
