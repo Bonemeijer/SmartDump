@@ -27,6 +27,7 @@ namespace SmartDump\Node;
 
 use SmartDump\Node\Type\ArrayType\ArrayNodeTypeFactory;
 use SmartDump\Node\Type\BooleanType\BooleanNodeTypeFactory;
+use SmartDump\Node\Type\DateTimeType\DateTimeNodeTypeFactory;
 use SmartDump\Node\Type\FloatType\FloatNodeTypeFactory;
 use SmartDump\Node\Type\IntegerType\IntegerNodeTypeFactory;
 use SmartDump\Node\Type\NullType\NullNodeTypeFactory;
@@ -59,6 +60,9 @@ class DefaultNodeFactory extends NodeFactory
         $this->addTypeFactory(new NullNodeTypeFactory());
         $this->addTypeFactory(new ResourceNodeTypeFactory());
         $this->addTypeFactory(new StringNodeTypeFactory());
+
+        // special types
+        $this->addTypeFactory(new DateTimeNodeTypeFactory($this));
 
         // aggregate types
         $this->addTypeFactory(new ArrayNodeTypeFactory($this));

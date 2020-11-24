@@ -80,7 +80,7 @@ class NodeFactory implements NodeFactoryInterface
     {
         $typeFactory->setMaxDepth($this->maxDepth);
 
-        array_unshift($this->typeFactories, $typeFactory);
+        $this->typeFactories[] = $typeFactory;
     }
 
     /**
