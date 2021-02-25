@@ -23,7 +23,7 @@
  * SOFTWARE.
  */
 
-namespace SmartDump\Node;
+namespace SmartDump\Node\Type;
 
 use RuntimeException;
 use SmartDump\Node\Type\NodeTypeFactoryInterface;
