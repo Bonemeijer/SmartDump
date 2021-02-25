@@ -25,7 +25,7 @@
 
 namespace SmartDump\Node\Type\StringType;
 
-use SmartDump\Node\NodeTypeNotSupportedException;
+use SmartDump\Node\Type\NodeTypeNotSupportedException;
 use SmartDump\Node\Type\NodeTypeFactory;
 
 /**

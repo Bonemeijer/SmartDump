@@ -25,7 +25,7 @@
 
 namespace SmartDump\Node\Type\IntegerType;
 
-use SmartDump\Node\NodeTypeNotSupportedException;
+use SmartDump\Node\Type\NodeTypeNotSupportedException;
 use SmartDump\Node\Type\NodeTypeFactory;
 
 /**

@@ -26,7 +26,6 @@
 namespace SmartDump\Node\Type;
 
 use RuntimeException;
-use SmartDump\Node\Type\NodeTypeFactoryInterface;
 
 /**
  * Class NodeTypeNotSupportedException

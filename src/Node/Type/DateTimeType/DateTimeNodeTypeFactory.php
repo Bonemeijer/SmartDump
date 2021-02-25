@@ -26,7 +26,7 @@
 namespace SmartDump\Node\Type\DateTimeType;
 
 use SmartDump\Node\NodeFactoryInterface;
-use SmartDump\Node\NodeTypeNotSupportedException;
+use SmartDump\Node\Type\NodeTypeNotSupportedException;
 use SmartDump\Node\Type\NodeTypeFactory;
 
 /**
