@@ -4,13 +4,13 @@
         "timezone_type": 3,
         "timezone": "Europe/Amsterdam"
     },
-    "supported": false,
+    "supported": true,
     "node": {
         "name": null,
         "visibility": null,
         "static": false,
         "aggregate": true,
-        "string_value": "",
+        "string_value": "DateTimeImmutable",
         "children": [
             {
                 "name": "date",

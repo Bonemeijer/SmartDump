@@ -10,7 +10,7 @@
         "visibility": null,
         "static": false,
         "aggregate": true,
-        "string_value": "",
+        "string_value": "DateTime",
         "children": [
             {
                 "name": "date",

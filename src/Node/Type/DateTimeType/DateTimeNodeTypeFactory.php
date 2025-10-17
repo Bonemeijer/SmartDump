@@ -55,7 +55,7 @@ class DateTimeNodeTypeFactory extends NodeTypeFactory
      */
     public function supports($variable)
     {
-        return $variable instanceof \DateTime;
+        return $variable instanceof \DateTimeInterface;
     }
 
     /**
@@ -69,7 +69,7 @@ class DateTimeNodeTypeFactory extends NodeTypeFactory
 
         // add nodes for all array items
         $node = new DateTimeNodeType();
-        $node->setStringValue('');
+        $node->setStringValue($variable::class);
 
         $nodeData = [
             'date'     => $variable->format('d-m-y H:i:s.u'),
