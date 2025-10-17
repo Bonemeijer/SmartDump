@@ -1,0 +1,34 @@
+{
+    "value": {
+        "date": "2020-01-01 12:37:51.000000",
+        "timezone_type": 3,
+        "timezone": "UTC"
+    },
+    "supported": true,
+    "node": {
+        "name": null,
+        "visibility": null,
+        "static": false,
+        "aggregate": true,
+        "string_value": "",
+        "children": [
+            {
+                "name": "date",
+                "visibility": null,
+                "static": false,
+                "aggregate": false,
+                "string_value": "01-01-20 12:37:51.000000",
+                "children": []
+            },
+            {
+                "name": "timezone",
+                "visibility": null,
+                "static": false,
+                "aggregate": false,
+                "string_value": "UTC",
+                "children": []
+            }
+        ]
+    },
+    "exception": null
+}

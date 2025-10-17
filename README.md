@@ -1,6 +1,6 @@
 # SmartDump
 
-A smarter alternative to var_dump for PHP5.6+
+A smarter alternative to var_dump for PHP8.3+
 
 The goal is to provide a friendly debug tool that is framework independent and works across multiple environments.
 

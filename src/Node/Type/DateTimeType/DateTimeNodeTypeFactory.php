@@ -63,7 +63,7 @@ class DateTimeNodeTypeFactory extends NodeTypeFactory
      */
     public function create($variable, $currentDepth = 0)
     {
-        if (!$variable instanceof \DateTime) {
+        if (!$variable instanceof \DateTimeInterface) {
             throw NodeTypeNotSupportedException::createFor(gettype($variable), $this);
         }
 
